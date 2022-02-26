@@ -7,8 +7,12 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
 
+    def new
+        @article = Article.new
+    end
+
     def create
-        @article = Article.new(title: "...", body: "...")
+        @article = Article.new(article_params)
 
         if @article.save
             redirect_to @article
@@ -17,9 +21,6 @@ class ArticlesController < ApplicationController
         end
     end
 
-    def new
-        @article = Article.new
-    end
 
     def destroy
         @article = Article.find(params[:id])
