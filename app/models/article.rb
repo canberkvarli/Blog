@@ -13,6 +13,8 @@ class Article < ApplicationRecord
     validates :title, presence: :true
     validates :body, presence:  :true, length: {minimum: 10}
 
-    has_many :Comments, class_name: "Comment", foreign_key: "reference_id"
+    has_many :comments, 
+    class_name: "Comment",
+    dependent: :destroy
 
 end
