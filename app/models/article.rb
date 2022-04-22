@@ -19,5 +19,7 @@ class Article < ApplicationRecord
     class_name: "Comment",
     dependent: :destroy
 
-
+    belong_to :user,
+    class_name: "User",
+    dependent: :destroy
 end
